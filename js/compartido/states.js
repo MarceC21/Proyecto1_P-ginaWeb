@@ -1,0 +1,1 @@
+//Aqui estaran los estados globales de la aplicacion, loading, error, etc

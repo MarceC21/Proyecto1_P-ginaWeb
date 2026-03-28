@@ -1,0 +1,1 @@
+//Todo lo del render de los posts. Lo de pintar las cards y paginación

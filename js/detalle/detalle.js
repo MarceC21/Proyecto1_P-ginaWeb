@@ -1,0 +1,1 @@
+// Toda la lógica relacionada a los detalles de los posts

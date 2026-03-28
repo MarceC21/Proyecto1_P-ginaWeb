@@ -1,0 +1,1 @@
+// Toda la lógica para manejar la búsqueda de los posts

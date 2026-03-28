@@ -1,0 +1,1 @@
+// Aqui están todas las validaciones para crear un nuevo post

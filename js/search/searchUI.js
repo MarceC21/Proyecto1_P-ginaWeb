@@ -1,0 +1,1 @@
+// Render para actualizar la UI de búsqueda con los resultados obtenidos

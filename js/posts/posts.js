@@ -1,0 +1,1 @@
+// Toda la lógica relacionada a los posts que se muestran en la pagina principal

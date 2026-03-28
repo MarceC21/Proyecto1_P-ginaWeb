@@ -1,0 +1,1 @@
+// Toda la lógica relacionada a los formularios de creación de posts

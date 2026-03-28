@@ -1,0 +1,1 @@
+// Render de los detalles de los posts
