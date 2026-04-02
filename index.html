@@ -5,11 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <!-- Poner luego css-->
 </head>
+ 
 <body>
-    <script src="js/main.js"></script>
+ 
+    <!-- HEADER: título + subtítulo -->
+    <header>
+        <h1>MiniBlog</h1>
+        <h2>Explora y comparte</h2>
 
+    </header>
+ 
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="page-wrapper">
+ 
+        <!-- BÚSQUEDA -->
+        <section id="search">
+            <input type="text" id="searchInput"
+                placeholder="Buscar por título o contenido...">
+            <button id="searchButton">Buscar</button>
+        </section>
+ 
+        <!-- UI STATE: estado de la búsqueda -->
+        <div class="ui-state-bar" id="searchStatus">Estado: esperando búsqueda…</div>
 
+        <!-- Area para la paginación -->
+        <div id="pagination">
+            <!-- Botones de paginación -->
+        </div>
+
+        <!-- Botón que lleva al formulario de creación de posts -->
+        <a href="pages/vistaPost.html">
+            <button>Crear nuevo post</button>
+        </a>
+ 
+        <!-- LISTA DE PUBLICACIONES -->
+        <section id="postsSection">
+            <h2>Publicaciones</h2>
+            <ul id="postsContainer"></ul>
+        </section>
+ 
+    </div>
+ 
+    <footer>
+        <small>Blog &copy; 2026 — UVG Sistemas y Tecnologías Web</small>
+    </footer>
+ 
+    <script type="module" src="js/main.js"></script>
 </body>
-
 </html>
