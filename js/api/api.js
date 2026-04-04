@@ -144,3 +144,4 @@ export async function deletePost(postId) {
 
     return response.json();
 }
+

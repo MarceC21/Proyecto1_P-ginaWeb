@@ -7,7 +7,7 @@
 //FALTA AGREGAR EL BOTPN DE VER MÁS (QUE LLEVE AL DETALLE DEL POST)
 export function PostCard(post){
         return `
-        <div class="PostCard">
+        <li class="post-card">
             <h3 class="card-title">${post.title}</h3>
             
             <p class="card-body">
@@ -17,6 +17,6 @@ export function PostCard(post){
             <p class="card-author">
                 Autor: Usuario ${post.userId}
             </p>
-        </div>
+        </li>
     `;
 }

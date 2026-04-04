@@ -5,10 +5,9 @@
 // Se utiliza una clase base "state" en todos los estados, y clases específicas para diferenciar cada tipo 
 // ( Para reutilizar estilos)
 
-
+// states.js
 
 // Estado inicial (idle)
-// Se muestra cuando aún no hay interacción o datos cargados
 export function renderIdle(container) {
     container.innerHTML = `
         <li class="state state-idle">
@@ -17,9 +16,7 @@ export function renderIdle(container) {
     `;
 }
 
-
 // Estado de carga (loading)
-// Indica que la aplicación está procesando datos
 export function renderLoading(container) {
     container.innerHTML = `
         <li class="state state-loading">
@@ -28,17 +25,12 @@ export function renderLoading(container) {
     `;
 }
 
-
 // Estado de éxito (success)
-// Se utiliza cuando los datos se cargaron correctamente
-// (posts, resultados, etc.)
-export function renderSuccess(container, html) {
-    container.innerHTML = html;
+export function renderSuccess(container, postsHTML) {
+    container.innerHTML = postsHTML;
 }
 
-
 // Estado vacío (empty)
-// Se muestra cuando la búsqueda o consulta no devuelve resultados
 export function renderEmpty(container) {
     container.innerHTML = `
         <li class="state state-empty">
@@ -47,10 +39,7 @@ export function renderEmpty(container) {
     `;
 }
 
-
 // Estado de error (error)
-// Se muestra cuando ocurre un fallo en la API o en la carga
-// Incluye botón de reintento (retry)
 export function renderError(container, retryCallback) {
     container.innerHTML = `
         <li class="state state-error">
@@ -65,9 +54,7 @@ export function renderError(container, retryCallback) {
     }
 }
 
-
-// Estado de éxito para acciones (crear, editar, eliminar)
-// Diferente al success general porque muestra un mensaje al usuario
+// Estado de éxito para acciones
 export function renderSuccessMessage(container, message) {
     container.innerHTML = `
         <li class="state state-success">
