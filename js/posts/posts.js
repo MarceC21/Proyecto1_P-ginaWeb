@@ -1,7 +1,7 @@
 // Toda la lógica relacionada a los posts que se muestran en la pagina principal
 
 
-import { getPostsRange } from "../api/api.js";
+import { getPostsRange, getPosts } from "../api/api.js";
 import { renderLoading, renderError } from "../compartido/states.js";
 import { renderPosts, renderPagination } from "./postsUI.js";
 
@@ -43,6 +43,24 @@ export async function loadPosts(page = 1) {
     } catch (error) {
         console.error("Error al cargar los posts:", error);
         renderError(postsContainer, () => loadPosts(currentPage));
+    }
+}
+
+// Función para cargar los posts sin paginación.
+// Esta versión obtiene todos los posts de la API y no utiliza skip/limit.
+// Se us0 para pruebas sin paginación.
+export async function loadPostsWithoutPagination() {
+    renderLoading(postsContainer);
+
+    try {
+        const data = await getPosts();
+        const posts = data.posts;
+
+        renderPosts(postsContainer, posts);
+
+    } catch (error) {
+        console.error("Error al cargar los posts:", error);
+        renderError(postsContainer, loadPostsWithoutPagination);
     }
 }
 
