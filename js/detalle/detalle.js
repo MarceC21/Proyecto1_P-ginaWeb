@@ -4,13 +4,26 @@ import { renderPostDetail } from "./detalleUI.js";
 const detailContainer = document.getElementById("detailContainer");
 const detailState = document.getElementById("detailState");
 
+function getPostIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
+
 function initDetailPage() {
-  detailState.textContent = "Vista de detalle lista para conectar con la API.";
+  const postId = getPostIdFromUrl();
+
+  if (!postId) {
+    detailState.textContent = "No se encontró el ID del post en la URL.";
+    detailContainer.innerHTML = "";
+    return;
+  }
+
+  detailState.textContent = `Mostrando detalle del post con ID: ${postId}`;
   detailContainer.innerHTML = renderPostDetail({
-    id: "-",
-    title: "Aquí se mostrará el título del post",
+    id: postId,
+    title: "Título temporal del post",
     userId: "-",
-    body: "Aquí se mostrará el contenido completo del post."
+    body: "Aquí luego se cargará el contenido real desde la API."
   });
 }
 
