@@ -32,7 +32,16 @@
 
         <!-- Area para la paginación -->
         <div id="pagination">
-            <!-- Botones de paginación -->
+            <select id="limitSelect">
+                <option value="5">5 por página</option>
+                <option value="10" selected>10 por página</option>
+                <option value="20">20 por página</option>
+                
+            </select>
+
+            <button id="prevBtn" disabled>← Anterior</button>
+            <span id="pageInfo">Página 1 de ?</span>
+            <button id="nextBtn" disabled>Siguiente →</button>
         </div>
 
         <!-- Botón que lleva al formulario de creación de posts -->

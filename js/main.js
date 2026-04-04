@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderIdle(container);
 
     // Cargar posts
-    loadPosts();
+    loadPosts(1);
 });
