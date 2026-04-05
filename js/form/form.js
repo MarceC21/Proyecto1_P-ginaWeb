@@ -5,6 +5,7 @@ import { validarPost } from "../compartido/validaciones.js";
 
 const postForm = document.getElementById("postForm");
 const formMessage = document.getElementById("formMessage");
+const submitButton = postForm.querySelector("button[type='submit']");
 
 function getFormData() {
   const title = document.getElementById("title").value.trim();
@@ -20,6 +21,11 @@ function getFormData() {
 
 function clearForm() {
   postForm.reset();
+}
+
+function setSubmitState(isLoading) {
+  submitButton.disabled = isLoading;
+  submitButton.textContent = isLoading ? "Enviando..." : "Crear publicación";
 }
 
 function initFormPage() {
@@ -40,6 +46,7 @@ function initFormPage() {
     }
 
     showFormMessage(formMessage, "Enviando publicación...", "info");
+    setSubmitState(true);
 
     try {
       const createdPost = await createPost(formData);
@@ -56,6 +63,8 @@ function initFormPage() {
     } catch (error) {
       console.error("Error al crear el post:", error);
       showFormMessage(formMessage, "No se pudo crear la publicación.", "error");
+    } finally {
+      setSubmitState(false);
     }
   });
 }
