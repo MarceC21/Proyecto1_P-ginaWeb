@@ -4,12 +4,33 @@ import { showFormMessage } from "./formUI.js";
 const postForm = document.getElementById("postForm");
 const formMessage = document.getElementById("formMessage");
 
+function getFormData() {
+  const title = document.getElementById("title").value.trim();
+  const body = document.getElementById("body").value.trim();
+  const userId = document.getElementById("userId").value.trim();
+
+  return {
+    title,
+    body,
+    userId
+  };
+}
+
 function initFormPage() {
   showFormMessage(formMessage, "Formulario listo para crear publicaciones.", "info");
 
   postForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    showFormMessage(formMessage, "Luego conectaremos este formulario al POST.", "info");
+
+    const formData = getFormData();
+
+    console.log("Datos del formulario:", formData);
+
+    showFormMessage(
+      formMessage,
+      `Formulario capturado: título "${formData.title || "sin título"}"`,
+      "info"
+    );
   });
 }
 
