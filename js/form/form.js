@@ -1,4 +1,5 @@
 // Toda la lógica relacionada a los formularios de creación de posts
+import { createPost } from "../api/api.js";
 import { showFormMessage } from "./formUI.js";
 import { validarPost } from "../compartido/validaciones.js";
 
@@ -13,31 +14,49 @@ function getFormData() {
   return {
     title,
     body,
-    userId
+    userId: Number(userId)
   };
+}
+
+function clearForm() {
+  postForm.reset();
 }
 
 function initFormPage() {
   showFormMessage(formMessage, "Formulario listo para crear publicaciones.", "info");
 
-  postForm.addEventListener("submit", (event) => {
+  postForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = getFormData();
-    const validation = validarPost(formData);
+    const validation = validarPost({
+      ...formData,
+      userId: String(formData.userId)
+    });
 
     if (!validation.isValid) {
       showFormMessage(formMessage, validation.errors.join(" "), "error");
       return;
     }
 
-    console.log("Datos válidos del formulario:", formData);
+    showFormMessage(formMessage, "Enviando publicación...", "info");
 
-    showFormMessage(
-      formMessage,
-      `Formulario válido: título "${formData.title}"`,
-      "success"
-    );
+    try {
+      const createdPost = await createPost(formData);
+
+      console.log("Post creado:", createdPost);
+
+      showFormMessage(
+        formMessage,
+        `Publicación creada con éxito. ID recibido: ${createdPost.id}`,
+        "success"
+      );
+
+      clearForm();
+    } catch (error) {
+      console.error("Error al crear el post:", error);
+      showFormMessage(formMessage, "No se pudo crear la publicación.", "error");
+    }
   });
 }
 
