@@ -10,25 +10,34 @@ function getPostIdFromUrl() {
   return params.get("id");
 }
 
+function showDetailState(message) {
+  detailState.textContent = message;
+}
+
+function clearDetail() {
+  detailContainer.innerHTML = "";
+}
+
 async function initDetailPage() {
   const postId = getPostIdFromUrl();
 
   if (!postId) {
-    detailState.textContent = "No se encontró el ID del post en la URL.";
-    detailContainer.innerHTML = "";
+    showDetailState("No se encontró el ID del post en la URL.");
+    clearDetail();
     return;
   }
 
-  detailState.textContent = "Cargando detalle del post...";
+  showDetailState("Cargando detalle del post...");
+  clearDetail();
 
   try {
     const post = await getPostById(postId);
-    detailState.textContent = `Mostrando detalle del post con ID: ${postId}`;
+    showDetailState(`Mostrando detalle del post con ID: ${postId}`);
     detailContainer.innerHTML = renderPostDetail(post);
   } catch (error) {
-    detailState.textContent = "Error al cargar el detalle del post.";
-    detailContainer.innerHTML = "";
-    console.error(error);
+    showDetailState("Error al cargar el detalle del post.");
+    clearDetail();
+    console.error("Error al obtener el detalle:", error);
   }
 }
 
