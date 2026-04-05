@@ -1,5 +1,6 @@
 // Toda la lógica relacionada a los formularios de creación de posts
 import { showFormMessage } from "./formUI.js";
+import { validarPost } from "../compartido/validaciones.js";
 
 const postForm = document.getElementById("postForm");
 const formMessage = document.getElementById("formMessage");
@@ -23,13 +24,19 @@ function initFormPage() {
     event.preventDefault();
 
     const formData = getFormData();
+    const validation = validarPost(formData);
 
-    console.log("Datos del formulario:", formData);
+    if (!validation.isValid) {
+      showFormMessage(formMessage, validation.errors.join(" "), "error");
+      return;
+    }
+
+    console.log("Datos válidos del formulario:", formData);
 
     showFormMessage(
       formMessage,
-      `Formulario capturado: título "${formData.title || "sin título"}"`,
-      "info"
+      `Formulario válido: título "${formData.title}"`,
+      "success"
     );
   });
 }
