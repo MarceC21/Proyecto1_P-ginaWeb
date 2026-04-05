@@ -1,0 +1,24 @@
+#formMessage {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.message-info {
+  background-color: #e8f1ff;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+}
+
+.message-success {
+  background-color: #e8fff1;
+  color: #15803d;
+  border: 1px solid #86efac;
+}
+
+.message-error {
+  background-color: #ffeaea;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
