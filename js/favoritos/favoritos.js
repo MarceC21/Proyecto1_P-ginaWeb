@@ -1,5 +1,6 @@
 const favoritesMessage = document.getElementById("favoritesMessage");
 const favoritesContainer = document.getElementById("favoritesContainer");
+const clearFavoritesButton = document.getElementById("clearFavoritesButton");
 
 function getFavorites() {
   const storedFavorites = localStorage.getItem("favoritePosts");
@@ -27,6 +28,10 @@ function saveDemoFavorites() {
   }
 }
 
+function clearFavorites() {
+  localStorage.removeItem("favoritePosts");
+}
+
 function renderFavorites(favorites) {
   favoritesContainer.innerHTML = favorites
     .map(
@@ -40,9 +45,7 @@ function renderFavorites(favorites) {
     .join("");
 }
 
-function initFavoritesPage() {
-  saveDemoFavorites();
-
+function updateFavoritesView() {
   const favorites = getFavorites();
 
   if (favorites.length === 0) {
@@ -53,6 +56,16 @@ function initFavoritesPage() {
 
   favoritesMessage.textContent = "Estas son tus publicaciones favoritas guardadas.";
   renderFavorites(favorites);
+}
+
+function initFavoritesPage() {
+  saveDemoFavorites();
+  updateFavoritesView();
+
+  clearFavoritesButton.addEventListener("click", () => {
+    clearFavorites();
+    updateFavoritesView();
+  });
 }
 
 initFavoritesPage();
