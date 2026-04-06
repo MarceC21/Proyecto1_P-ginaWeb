@@ -19,20 +19,32 @@
  
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="page-wrapper">
-        <!-- BÚSQUEDA -->
-        <section id="search">
+    <!-- BÚSQUEDA -->
+    <section id="search">
+        <div id="searchBar">
             <input 
                 type="text" 
                 id="searchInput"
-                placeholder="Buscar por título o contenido..."
+                placeholder="Escribe lo que quieres buscar..."
             >
-
             <button id="searchButton">Buscar</button>
+        </div>
 
-            <!-- Filtros -->
-            <button id="filterUser">Filtrar por usuario</button>
-            <button id="filterTag">Filtrar por tag</button>
-        </section>
+        <!-- Filtros -->
+
+        <!-- Filtro si quiere buscar por texto o por usuario -->
+        <select id="searchType">
+            <option value="query">Titulo o contenido</option>
+            <option value="user">ID de usuario</option>
+            <option value="tag">Tag</option>
+        </select>
+
+        <!-- Si es tag no tiene que escribir si no seleccionar-->
+        <select id="tagSelect" hidden></select>
+
+        <!-- Botón para limpiar filtros y volver a la vista normal -->
+        <button id="clearSearchBtn" hidden>✕ Limpiar búsqueda</button>
+    </section>
  
         <!-- UI STATE: estado de la búsqueda -->
         <div class="ui-state-bar" id="searchStatus">Estado: esperando búsqueda…</div>

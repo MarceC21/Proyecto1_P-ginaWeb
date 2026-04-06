@@ -17,6 +17,8 @@ export function PostCard(post){
             <p class="card-author">
                 Autor: Usuario ${post.userId}
             </p>
+
+            
         </li>
     `;
 }
