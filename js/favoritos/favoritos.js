@@ -54,7 +54,7 @@ function updateFavoritesView() {
     return;
   }
 
-  favoritesMessage.textContent = "Estas son tus publicaciones favoritas guardadas.";
+  favoritesMessage.textContent = `Tienes ${favorites.length} publicaciones favoritas guardadas.`;
   renderFavorites(favorites);
 }
 
