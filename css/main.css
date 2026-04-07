@@ -983,3 +983,57 @@ footer small {
 button:hover {
   box-shadow: 0 0 12px var(--c-glow);
 }
+
+.detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.detail-delete-btn {
+  background: transparent;
+  border: 1.5px solid #c44b37;
+  color: #c44b37;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detail-delete-btn:hover {
+  background: #c44b37;
+  color: #fff;
+  box-shadow: none;
+}
+
+.detail-delete-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.detail-deleted-box {
+  border: 1.5px dashed rgba(196, 75, 55, 0.45);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  background: rgba(196, 75, 55, 0.08);
+}
+
+.detail-deleted-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--c-text);
+  margin-bottom: 10px;
+}
+
+.detail-deleted-text {
+  font-family: var(--font-sans);
+  color: var(--c-text-2);
+  line-height: 1.7;
+}
