@@ -1,7 +1,7 @@
 // Punto de entrada de la aplicación
 import { loadPosts } from "./posts/posts.js";
 import { renderIdle } from "./compartido/states.js";
-import { loadTagOptions } from "./search/search.js";
+import { loadTagOptions } from "./search/search.js"; 
 
 document.addEventListener("DOMContentLoaded", () => {
     
