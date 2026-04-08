@@ -151,3 +151,6 @@ Abrir index.html en el navegador o Usar Live Server (recomendado)
 ## Notas adicionales
 Algunas acciones pueden ser simuladas si la API no soporta persistencia completa
 
+---
+## Video de muestra en YouTube:
+https://youtu.be/FoJWra2FLCw
